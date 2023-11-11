@@ -1,0 +1,94 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier, NearestCentroid
+from sklearn.metrics import accuracy_score
+from sklearn.decomposition import PCA
+
+# Load CIFAR-10 data using your unpickle function
+def unpickle(file):
+    import pickle
+    with open(file, 'rb') as fo:
+        dict = pickle.load(fo, encoding='bytes')
+    return dict
+
+file = r'C:\Users\Elena\Downloads\cifar-10-batches-py\data_batch_1'
+data_batch_1 = unpickle(file)
+
+# Extract data and labels
+data = data_batch_1[b'data']  # Assuming 'data' is the key for images
+labels = data_batch_1[b'labels']  # Assuming 'labels' is the key for labels
+
+# Normalize pixel values to range [0, 1]
+data = data / 255.0
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(data, labels, test_size=0.2, random_state=42)
+
+# Visualize a random sample of images
+def visualize_sample_images(images, labels, num_images=20, title="Sample Images"):
+    fig, axes = plt.subplots(2, num_images // 2, figsize=(15, 6))
+    fig.suptitle(title, fontsize=16)
+    for i, ax in enumerate(axes.flat):
+        random_index = np.random.randint(0, len(images) - 1)
+        ax.imshow(images[random_index].reshape(3, 32, 32).transpose(1, 2, 0))
+        ax.set_title("Label: {}".format(labels[random_index]))
+        ax.axis('off')
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    plt.show()
+
+# Visualize a random sample of images before training
+visualize_sample_images(X_train, y_train, title="Sample Images Before Training")
+
+# Apply PCA for visualization in 2D
+pca = PCA(n_components=2)
+X_train_pca = pca.fit_transform(X_train)
+
+# Plot 2D scatter plot before training
+plt.figure(figsize=(8, 6))
+for i in range(10):  # Assuming 10 classes in CIFAR-10
+    plt.scatter(X_train_pca[y_train == i, 0], X_train_pca[y_train == i, 1], label=f'Class {i}')
+
+plt.title('PCA Visualization of CIFAR-10 Data Before Training')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.legend()
+plt.show()
+
+# Train classifiers
+knn_1 = KNeighborsClassifier(n_neighbors=1)
+knn_1.fit(X_train, y_train)
+
+knn_3 = KNeighborsClassifier(n_neighbors=3)
+knn_3.fit(X_train, y_train)
+
+nearest_center = NearestCentroid()
+nearest_center.fit(X_train, y_train)
+
+# Visualize a random sample of images after training
+visualize_sample_images(X_train, knn_1.predict(X_train), title="Sample Images After 1-NN Training")
+visualize_sample_images(X_train, knn_3.predict(X_train), title="Sample Images After 3-NN Training")
+visualize_sample_images(X_train, nearest_center.predict(X_train), title="Sample Images After Nearest Center Training")
+
+# Apply PCA again for visualization in 2D after training
+X_train_pca = pca.transform(X_train)
+
+# Plot 2D scatter plot after training
+plt.figure(figsize=(8, 6))
+for i in range(10):  # Assuming 10 classes in CIFAR-10
+    plt.scatter(X_train_pca[y_train == i, 0], X_train_pca[y_train == i, 1], label=f'Class {i}')
+
+plt.title('PCA Visualization of CIFAR-10 Data After Training')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.legend()
+plt.show()
+
+# Evaluate and print accuracies
+accuracy_1nn = accuracy_score(y_test, knn_1.predict(X_test))
+accuracy_3nn = accuracy_score(y_test, knn_3.predict(X_test))
+accuracy_nearest_center = accuracy_score(y_test, nearest_center.predict(X_test))
+
+print("Accuracy of 1-NN Classifier: {:.2f}%".format(accuracy_1nn * 100))
+print("Accuracy of 3-NN Classifier: {:.2f}%".format(accuracy_3nn * 100))
+print("Accuracy of Nearest Center Classifier: {:.2f}%".format(accuracy_nearest_center * 100))
