@@ -4,8 +4,9 @@ from nnfs.datasets import spiral_data
 
 nnfs.init()
 
-X,y = spiral_data(100, 3)
-
+X,y = spiral_data(100, 3) 
+# X shape is (300,2) 
+# y shape is (300,)
 
 class Layer_Dense:
     def __init__(self, n_inputs, n_neurons):
