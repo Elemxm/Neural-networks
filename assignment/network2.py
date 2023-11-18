@@ -2,6 +2,12 @@ import tensorflow as tf
 from keras import layers, models, datasets
 import numpy as np
 import matplotlib.pyplot as plt
+from keras.callbacks import TensorBoard
+import time
+
+NAME = "cifar10-32x64x64x10-{}".format(int(time.time()))
+TensorBoard = TensorBoard(log_dir= 'D:/old-files/Desktop/thmmu/9o/NeurwnikaDiktua/logs/{}'.format(NAME))
+
 
 
 # Loading the CIFAR-10 dataset
