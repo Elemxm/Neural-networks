@@ -50,7 +50,7 @@ for dense_layer in dense_layers:
               metrics=['accuracy'])
             
             # Train the model
-            model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels))
+            model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels), callbacks=[tensorBoard])
 
             # Evaluate the model on the test set
             test_loss, test_acc = model.evaluate(test_images, test_labels)
