@@ -1,12 +1,9 @@
 import tensorflow as tf
 from keras import layers, datasets
-import numpy as np
-import matplotlib.pyplot as plt
 from keras.callbacks import TensorBoard
 import time
 
-# layer_sizes = [10, 64, 128, 256]
-layer_sizes = [32, 64]
+layer_sizes = [10, 64, 128, 256]
 
 # Loading the CIFAR-10 dataset
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
@@ -26,17 +23,16 @@ for layer1_size in layer_sizes:
         NAME = "{}-layer1-{}-layer2-{}".format(layer1_size, layer2_size, int(time.time()))
         tensorboard = TensorBoard(log_dir='D:/old-files/Desktop/thmmu/9o/NeurwnikaDiktua/assignment_logs/{}'.format(NAME))
         model = tf.keras.models.Sequential()
+            
         # Flatten layer
         model.add(layers.Flatten(input_shape=(32, 32, 3)))
-        model.add(layers.Dense(128, activation='relu'))
+        model.add(layers.Dense(layer1_size, activation= 'relu'))
+        print(f'This is the {layer1_size}')
+    
+        model.add(layers.Dense(layer2_size, activation= 'relu'))
+        print(f'This is the2 {layer2_size}')
 
-        for l in range(layer1_size):
-            model.add(layers.Dense(layer1_size, activation= 'relu'))
-        
-        for l in range(layer2_size):
-            model.add(layers.Dense(layer2_size, activation= 'relu'))
-
-        model.add(layers.Dense(128, activation='softmax'))
+        model.add(layers.Dense(10, activation='softmax'))
 
         # Compile the model
         model.compile(optimizer='adam',
@@ -46,7 +42,7 @@ for layer1_size in layer_sizes:
         # Train the model
         model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels), callbacks=[tensorboard])
        
-# Evaluate the model on the test set
+        # Evaluate the model on the test set
         test_loss, test_acc = model.evaluate(test_images, test_labels)
         print(f'Test loss: {test_loss}')
         print(f'Test accuracy: {test_acc}')
