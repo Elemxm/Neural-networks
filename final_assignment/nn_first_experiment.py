@@ -9,10 +9,6 @@ layer_sizes = [10, 64, 128, 256]
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
-# Flatten the images for the classification
-train_images_flat = train_images.reshape(train_images.shape[0], -1) #The shape is (50000, 3072)
-test_images_flat = test_images.reshape(test_images.shape[0], -1) #The shape is (10000, 3072)
-
 #Defining the class names
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                'dog', 'frog', 'horse', 'ship', 'truck']
@@ -27,11 +23,7 @@ for layer1_size in layer_sizes:
         # Flatten layer
         model.add(layers.Flatten(input_shape=(32, 32, 3)))
         model.add(layers.Dense(layer1_size, activation= 'relu'))
-        print(f'This is the {layer1_size}')
-    
         model.add(layers.Dense(layer2_size, activation= 'relu'))
-        print(f'This is the2 {layer2_size}')
-
         model.add(layers.Dense(10, activation='softmax'))
 
         # Compile the model
@@ -40,7 +32,7 @@ for layer1_size in layer_sizes:
               metrics=['accuracy'])
         
         # Train the model
-        model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels), callbacks=[tensorboard])
+        model.fit(train_images, train_labels, epochs=10, validation_split=0.3, callbacks=[tensorboard])
        
         # Evaluate the model on the test set
         test_loss, test_acc = model.evaluate(test_images, test_labels)
