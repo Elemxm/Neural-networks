@@ -6,7 +6,8 @@ from keras.callbacks import TensorBoard
 import time
 
 NAME = "256-layer1-256-layer2-{}".format(int(time.time()))
-TensorBoard = TensorBoard(log_dir= 'D:/old-files/Desktop/thmmu/9o/NeurwnikaDiktua/assignment_logs/{}'.format(NAME))
+TensorBoard = TensorBoard(log_dir='C:/elenamach/assignment-logs/2e-fixed-dropout/{}'.format(NAME))
+
 
 # Loading the CIFAR-10 dataset
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
@@ -41,7 +42,7 @@ test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(f'Test loss: {test_loss}')
 print(f'Test accuracy: {test_acc}')
 
-model.save('first_experiment')
+model.save('second_experiment')
 new_model = tf.keras.models.load_model('second_experiment')
 predictions = new_model.predict([test_images])
 
