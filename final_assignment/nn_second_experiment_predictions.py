@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from keras.callbacks import TensorBoard
 import time
 
-NAME = "256-layer1-256-layer2-{}".format(int(time.time()))
-TensorBoard = TensorBoard(log_dir='C:/elenamach/assignment-logs/2e-fixed-dropout/{}'.format(NAME))
+NAME = "128-layer1-128-layer2-{}".format(int(time.time()))
+TensorBoard = TensorBoard(log_dir='C:/elenamach/assignment-logs/assignment_logs/{}'.format(NAME))
 
 
 # Loading the CIFAR-10 dataset

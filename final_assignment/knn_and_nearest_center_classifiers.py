@@ -1,9 +1,6 @@
-import tensorflow as tf
 from keras import datasets
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.neighbors import NearestCentroid
 
