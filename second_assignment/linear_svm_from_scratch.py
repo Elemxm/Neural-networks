@@ -8,8 +8,6 @@ import time
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
-# 0 --> Airplane
-# 1 --> Automobile
 selected_classes = [0, 1]
 class_names = ['airplane', 'automobile']
 
@@ -112,7 +110,7 @@ print(f'the accuracy score on training data is: {training_data_accuracy}')
 start_time = time.time()
 test_images_prediction = classifier.predict(test_images)
 end_time = time.time()
-print(f'Prediction time test images:: {end_time - start_time} seconds')
+print(f'Prediction time test images: {end_time - start_time} seconds')
 
 testing_data_accuracy = accuracy_score(test_labels, test_images_prediction)
 print(f'the accuracy score on testing data is: {testing_data_accuracy}')
