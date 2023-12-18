@@ -1,21 +1,17 @@
 from keras import datasets
 import numpy as np
-import pandas as pd
 from sklearn.metrics import accuracy_score
-
+import matplotlib.pyplot as plt 
+import time
 
 # Loading the CIFAR-10 dataset
-# X_train = train_images
-# X_test = test_images
-# Y_train = train_labels
-# Y_testt = test_labels
-
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
 # 0 --> Airplane
 # 1 --> Automobile
 selected_classes = [0, 1]
+class_names = ['airplane', 'automobile']
 
 # Use np.where to get the indices of selected classes
 train_indices = np.where(np.isin(train_labels, selected_classes))[0]
@@ -28,7 +24,6 @@ test_images = test_images[test_indices]
 test_labels = test_labels[test_indices]
 train_images = train_images.reshape(train_images.shape[0], -1)
 test_images = test_images.reshape(test_images.shape[0], -1)
-
 
 
 class SVM_classifier():
@@ -96,62 +91,44 @@ class SVM_classifier():
 #Calling the instance of the Model
 classifier = SVM_classifier(learning_rate=0.001, iterations=1000, lambda_parameter=0.01)
 
-#training the SVM classifier with training data
+#Start Calculating the training time 
+start_time = time.time()
 
+#training the SVM classifier with training data
 classifier.fit(train_images, train_labels)
+
+#Ending time for training 
+end_time = time.time()
+print(f'Training time: {end_time - start_time} seconds')
+
+start_time = time.time()
 train_images_prediction = classifier.predict(train_images)
+end_time = time.time()
+print(f'Prediction time train images: {end_time - start_time} seconds')
+
 training_data_accuracy = accuracy_score(train_labels, train_images_prediction)
 print(f'the accuracy score on training data is: {training_data_accuracy}')
 
-
-classifier.fit(test_images, test_labels)
+start_time = time.time()
 test_images_prediction = classifier.predict(test_images)
+end_time = time.time()
+print(f'Prediction time test images:: {end_time - start_time} seconds')
+
 testing_data_accuracy = accuracy_score(test_labels, test_images_prediction)
 print(f'the accuracy score on testing data is: {testing_data_accuracy}')
 
-import matplotlib.pyplot as plt
 
-from sklearn.decomposition import PCA
+num_displayed = 15
 
-# Perform PCA to reduce the dimensionality to 2
-pca = PCA(n_components=2)
-train_images_pca = pca.fit_transform(train_images)
+for i in range(min(num_displayed, len(test_images))):
+    true_label = test_labels[i]
+    
+    predicted_label = classifier.predict(test_images[i])
 
-# Calling the instance of the Model
-classifier = SVM_classifier(learning_rate=0.001, iterations=1000, lambda_parameter=0.01)
+    # Display the image using matplotlib
+    plt.subplot(5, 3, i + 1)
+    plt.imshow(test_images[i].reshape(32, 32, 3))  # Assuming images are 32x32x3
+    plt.title(f'True: {class_names[true_label[0]]} Predicted: {class_names[predicted_label[0]]}')
+    plt.axis('off')
 
-# Training the SVM classifier with PCA-transformed training data
-classifier.fit(train_images_pca, train_labels)
-
-# Plotting the PCA-transformed data
-plt.scatter(train_images_pca[:, 0], train_images_pca[:, 1], c=train_labels, cmap=plt.cm.Paired, marker='o', edgecolors='k')
-
-# Plotting the decision boundary
-ax = plt.gca()
-xlim = ax.get_xlim()
-ylim = ax.get_ylim()
-
-# Create grid to evaluate model
-xx, yy = np.meshgrid(np.linspace(xlim[0], xlim[1], 50),
-                     np.linspace(ylim[0], ylim[1], 50))
-
-Z = classifier.predict(np.c_[xx.ravel(), yy.ravel()])
-
-# Put the result into a color plot
-Z = Z.reshape(xx.shape)
-plt.contour(xx, yy, Z, colors='k', levels=[-1, 0, 1], alpha=0.5, linestyles=['--', '-', '--'])
-
-# Highlight the support vectors
-plt.scatter(classifier.X[:, 0], classifier.X[:, 1], s=100, facecolors='none', edgecolors='k', marker='o')
-
-# Plotting predictions with different colors for correct and incorrect
-predictions = classifier.predict(train_images_pca)
-correct_predictions = (predictions == train_labels.flatten())
-incorrect_predictions = ~correct_predictions
-
-plt.scatter(train_images_pca[correct_predictions, 0], train_images_pca[correct_predictions, 1], c='green', marker='o', edgecolors='k', label='Correct Predictions')
-plt.scatter(train_images_pca[incorrect_predictions, 0], train_images_pca[incorrect_predictions, 1], c='red', marker='x', edgecolors='k', label='Incorrect Predictions')
-
-plt.legend()
-plt.title('SVM Decision Boundary and Support Vectors with Predictions (PCA)')
 plt.show()
