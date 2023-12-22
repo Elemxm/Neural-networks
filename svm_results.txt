@@ -1,0 +1,252 @@
+SVC Linear Classification results for C = 0.1 and gamma = 0.1
+Training time: 409.75182461738586 seconds
+Prediction time for train images: 549.3562543392181 seconds
+The accuracy score on training data is: 0.505
+Prediction time for test images: 110.28355813026428 seconds
+The accuracy score on testing data is: 0.5035
+SVC Linear Classification results for C = 1 and gamma = 0.1
+Training time: 964.0588071346283 seconds
+Prediction time for train images: 442.70113229751587 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 91.76381635665894 seconds
+The accuracy score on testing data is: 0.623
+SVC Linear Classification results for C = 100 and gamma = 0.1
+Training time: 1034.4869937896729 seconds
+Prediction time for train images: 428.50700998306274 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 92.14197206497192 seconds
+The accuracy score on testing data is: 0.648
+SVC Linear Classification results for C = 1000 and gamma = 0.1
+Training time: 946.0563752651215 seconds
+Prediction time for train images: 440.33022713661194 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 90.70421719551086 seconds
+The accuracy score on testing data is: 0.648
+SVC Linear Classification results for C = 10 and gamma = 0.1
+Training time: 882.9748332500458 seconds
+Prediction time for train images: 323.0903642177582 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 64.25810265541077 seconds
+The accuracy score on testing data is: 0.648
+SVC Linear Classification results for C = 0.01 and gamma = 0.1
+Training time: 249.122802734375 seconds
+Prediction time for train images: 340.6490502357483 seconds
+The accuracy score on training data is: 0.505
+Prediction time for test images: 87.4792366027832 seconds
+The accuracy score on testing data is: 0.5035
+SVC Linear Classification results for C = 0.001 and gamma = 0.1
+Training time: 327.3480451107025 seconds
+Prediction time for train images: 446.192218542099 seconds
+The accuracy score on training data is: 0.505
+Prediction time for test images: 90.87445759773254 seconds
+The accuracy score on testing data is: 0.5035
+SVC Linear Classification results for C = 0.1 and gamma = 1
+Training time: 370.87721157073975 seconds
+Prediction time for train images: 574.5932154655457 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 113.10553479194641 seconds
+The accuracy score on testing data is: 0.5085
+SVC Linear Classification results for C = 1 and gamma = 1
+Training time: 404.25628638267517 seconds
+Prediction time for train images: 444.467910528183 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.27597332000732 seconds
+The accuracy score on testing data is: 0.5105
+SVC Linear Classification results for C = 100 and gamma = 1
+Training time: 327.1802999973297 seconds
+Prediction time for train images: 439.1935133934021 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.28325343132019 seconds
+The accuracy score on testing data is: 0.5165
+SVC Linear Classification results for C = 1000 and gamma = 1
+Training time: 328.6385543346405 seconds
+Prediction time for train images: 439.1552770137787 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.07947182655334 seconds
+The accuracy score on testing data is: 0.5165
+SVC Linear Classification results for C = 10 and gamma = 1
+Training time: 328.2917070388794 seconds
+Prediction time for train images: 438.47378420829773 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.7037901878357 seconds
+The accuracy score on testing data is: 0.5165
+SVC Linear Classification results for C = 0.01 and gamma = 1
+Training time: 331.34889101982117 seconds
+Prediction time for train images: 437.39190125465393 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.38659024238586 seconds
+The accuracy score on testing data is: 0.5085
+SVC Linear Classification results for C = 0.001 and gamma = 1
+Training time: 328.22026228904724 seconds
+Prediction time for train images: 437.12801003456116 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.29218006134033 seconds
+The accuracy score on testing data is: 0.5085
+SVC Linear Classification results for C = 0.1 and gamma = 100
+Training time: 334.6360342502594 seconds
+Prediction time for train images: 442.586546421051 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 89.79387927055359 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 1 and gamma = 100
+Training time: 335.20992255210876 seconds
+Prediction time for train images: 439.8831031322479 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 90.17800951004028 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 100 and gamma = 100
+Training time: 342.28737783432007 seconds
+Prediction time for train images: 454.7363348007202 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 94.97730040550232 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 1000 and gamma = 100
+Training time: 351.38176131248474 seconds
+Prediction time for train images: 469.78879165649414 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 92.69044995307922 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 10 and gamma = 100
+Training time: 337.01089572906494 seconds
+Prediction time for train images: 441.54862785339355 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 90.58547329902649 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 0.01 and gamma = 100
+Training time: 345.5104548931122 seconds
+Prediction time for train images: 455.1183865070343 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 91.13438391685486 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 0.001 and gamma = 100
+Training time: 340.37228322029114 seconds
+Prediction time for train images: 445.4203944206238 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.36875200271606 seconds
+The accuracy score on testing data is: 0.5
+SVC Linear Classification results for C = 0.1 and gamma = 10
+Training time: 337.1830334663391 seconds
+Prediction time for train images: 438.86504650115967 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.00155687332153 seconds
+The accuracy score on testing data is: 0.7335
+SVC Linear Classification results for C = 1 and gamma = 10
+Training time: 336.6886169910431 seconds
+Prediction time for train images: 440.51993465423584 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 87.95833802223206 seconds
+The accuracy score on testing data is: 0.734
+SVC Linear Classification results for C = 100 and gamma = 10
+Training time: 335.75884437561035 seconds
+Prediction time for train images: 440.328795671463 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 87.97506880760193 seconds
+The accuracy score on testing data is: 0.734
+SVC Linear Classification results for C = 1000 and gamma = 10
+Training time: 336.9883146286011 seconds
+Prediction time for train images: 441.0558760166168 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.15122151374817 seconds
+The accuracy score on testing data is: 0.734
+SVC Linear Classification results for C = 10 and gamma = 10
+Training time: 337.44343876838684 seconds
+Prediction time for train images: 444.648574590683 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.26918983459473 seconds
+The accuracy score on testing data is: 0.734
+SVC Linear Classification results for C = 0.01 and gamma = 10
+Training time: 338.3102614879608 seconds
+Prediction time for train images: 442.20199942588806 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 107.20935583114624 seconds
+The accuracy score on testing data is: 0.7315
+SVC Linear Classification results for C = 0.001 and gamma = 10
+Training time: 348.1697838306427 seconds
+Prediction time for train images: 445.70258593559265 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 88.9344687461853 seconds
+The accuracy score on testing data is: 0.731
+SVC Linear Classification results for C = 0.1 and gamma = 0.01
+Training time: 212.0800609588623 seconds
+Prediction time for train images: 270.3906145095825 seconds
+The accuracy score on training data is: 0.8483
+Prediction time for test images: 53.96760082244873 seconds
+The accuracy score on testing data is: 0.8455
+SVC Linear Classification results for C = 1 and gamma = 0.01
+Training time: 187.19666123390198 seconds
+Prediction time for train images: 237.20166754722595 seconds
+The accuracy score on training data is: 0.9804
+Prediction time for test images: 47.80623960494995 seconds
+The accuracy score on testing data is: 0.9075
+SVC Linear Classification results for C = 100 and gamma = 0.01
+Training time: 430.70266246795654 seconds
+Prediction time for train images: 264.57210063934326 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 52.826838970184326 seconds
+The accuracy score on testing data is: 0.913
+SVC Linear Classification results for C = 1000 and gamma = 0.01
+Training time: 428.49188446998596 seconds
+Prediction time for train images: 262.4981288909912 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 52.41619634628296 seconds
+The accuracy score on testing data is: 0.913
+SVC Linear Classification results for C = 10 and gamma = 0.01
+Training time: 422.89184165000916 seconds
+Prediction time for train images: 258.7522394657135 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 51.57977652549744 seconds
+The accuracy score on testing data is: 0.913
+SVC Linear Classification results for C = 0.01 and gamma = 0.01
+Training time: 300.66610074043274 seconds
+Prediction time for train images: 376.3952374458313 seconds
+The accuracy score on training data is: 0.7511
+Prediction time for test images: 76.74899315834045 seconds
+The accuracy score on testing data is: 0.753
+SVC Linear Classification results for C = 0.001 and gamma = 0.01
+Training time: 333.29521203041077 seconds
+Prediction time for train images: 495.0747878551483 seconds
+The accuracy score on training data is: 0.6439
+Prediction time for test images: 114.43750262260437 seconds
+The accuracy score on testing data is: 0.653
+SVC Linear Classification results for C = 0.1 and gamma = 0.001
+Training time: 244.9720437526703 seconds
+Prediction time for train images: 338.5777630805969 seconds
+The accuracy score on training data is: 0.8213
+Prediction time for test images: 67.8133020401001 seconds
+The accuracy score on testing data is: 0.834
+SVC Linear Classification results for C = 1 and gamma = 0.001
+Training time: 185.57769465446472 seconds
+Prediction time for train images: 215.4397325515747 seconds
+The accuracy score on training data is: 0.8701
+Prediction time for test images: 39.20786237716675 seconds
+The accuracy score on testing data is: 0.869
+SVC Linear Classification results for C = 100 and gamma = 0.001
+Training time: 139.38652205467224 seconds
+Prediction time for train images: 152.81964826583862 seconds
+The accuracy score on training data is: 0.9969
+Prediction time for test images: 30.653014183044434 seconds
+The accuracy score on testing data is: 0.91
+SVC Linear Classification results for C = 1000 and gamma = 0.001
+Training time: 136.97149801254272 seconds
+Prediction time for train images: 152.85014486312866 seconds
+The accuracy score on training data is: 1.0
+Prediction time for test images: 30.170621156692505 seconds
+The accuracy score on testing data is: 0.9015
+SVC Linear Classification results for C = 10 and gamma = 0.001
+Training time: 130.9891815185547 seconds
+Prediction time for train images: 161.50012946128845 seconds
+The accuracy score on training data is: 0.9399
+Prediction time for test images: 32.13870072364807 seconds
+The accuracy score on testing data is: 0.9025
+SVC Linear Classification results for C = 0.01 and gamma = 0.001
+Training time: 284.91437220573425 seconds
+Prediction time for train images: 342.7818388938904 seconds
+The accuracy score on training data is: 0.7669
+Prediction time for test images: 70.38999652862549 seconds
+The accuracy score on testing data is: 0.7775
+SVC Linear Classification results for C = 0.001 and gamma = 0.001
+Training time: 333.3940200805664 seconds
+Prediction time for train images: 435.78575348854065 seconds
+The accuracy score on training data is: 0.7118
+Prediction time for test images: 88.19404888153076 seconds
+The accuracy score on testing data is: 0.7285
