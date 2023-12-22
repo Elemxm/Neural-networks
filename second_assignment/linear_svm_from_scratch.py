@@ -125,7 +125,7 @@ for i in range(min(num_displayed, len(test_images))):
 
     # Display the image using matplotlib
     plt.subplot(5, 3, i + 1)
-    plt.imshow(test_images[i].reshape(32, 32, 3))  # Assuming images are 32x32x3
+    plt.imshow(test_images[i].reshape(32, 32, 3)) 
     plt.title(f'True: {class_names[true_label[0]]} Predicted: {class_names[predicted_label[0]]}')
     plt.axis('off')
 
