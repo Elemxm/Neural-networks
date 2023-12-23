@@ -62,7 +62,7 @@ def ploting_func(unique_gamma_values, C_values, accuracy, gamma_colors, type_of_
     plt.xlabel('C (Regularization Parameter)')
     plt.ylabel('Accuracy')
     plt.xscale('log')  # Logarithmic scale for better visualization
-    plt.title(f'SVM Linear Classification {type_of_data} Data Accuracy')
+    plt.title(f'SVM with rbf kernel Classification {type_of_data} Data Accuracy')
     plt.legend()
     plt.show()
 
