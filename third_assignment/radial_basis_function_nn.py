@@ -1,39 +1,50 @@
-from numpy import vstack, true_divide, mean, loadtxt
-from random import sample
-from h5py import File
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
+from scipy.spatial.distance import cdist
+from sklearn.linear_model import LogisticRegression  # Change to LogisticRegression for classification
 
-class Rbf:
-    def __init__(self, prefix = 'rbf', workers = 4, extra_neurons = 0, from_files = None):
-        self.prefix = prefix
-        self.workers = workers
-        self.extra_neurons = extra_neurons
+X, y = make_classification(n_samples=300, n_features=2, n_classes=2, n_clusters_per_class=2, n_redundant=0, random_state=42)
 
-        # Import partial model
-        if from_files is not None:            
-            w_handle = self.w_handle = File(from_files['w'], 'r')
-            mu_handle = self.mu_handle = File(from_files['mu'], 'r')
-            sigma_handle = self.sigma_handle = File(from_files['sigma'], 'r')
-            
-            self.w = w_handle['w']
-            self.mu = mu_handle['mu']
-            self.sigmas = sigma_handle['sigmas']
-            
-            self.neurons = self.sigmas.shape[0]
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Spectral)
+plt.title("Sample Dataset")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.show()
 
-    def _calculate_error(self, y):
-        self.error = mean(abs(self.os - y))
-        self.relative_error = true_divide(self.error, mean(y))
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
 
-    def _generate_mu(self, x):
-        n = self.n
-        extra_neurons = self.extra_neurons
+def gaussian_rbf(x, center, sigma):
+    return np.exp(-cdist(x, center, 'sqeuclidean') / (2 * sigma**2))
 
-        # TODO: Make reusable
-        mu_clusters = loadtxt('clusters100.txt', delimiter='\t')
+n_centers = 10  # Number of RBF centers
+center_indices = np.random.choice(X.shape[0], n_centers, replace=False)
+rbf_centers = X[center_indices]
+rbf_width = 1.0
 
-        mu_indices = sample(range(n), extra_neurons)
-        mu_new = x[mu_indices, :]
-        mu = vstack((mu_clusters, mu_new))
+def rbf_layer(X, rbf_centers, rbf_width):
+    return gaussian_rbf(X, rbf_centers, rbf_width)
 
-        return mu
+def rbfn_predict(X, rbf_centers, rbf_width, weights):
+    rbf_outputs = rbf_layer(X, rbf_centers, rbf_width)
+    return rbf_outputs @ weights  # Fix the return statement
 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+rbf_outputs_train = rbf_layer(X_train, rbf_centers, rbf_width)
+
+# Perform logistic regression for classification
+lr = LogisticRegression()
+lr.fit(rbf_outputs_train, y_train)
+
+# Make predictions on the test set
+rbf_outputs_test = rbf_layer(X_test, rbf_centers, rbf_width)
+y_pred = lr.predict(rbf_outputs_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy * 100:.2f}%")
