@@ -4,6 +4,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.cluster import KMeans
 from keras.datasets import cifar10
 from keras.utils import to_categorical
+from sklearn.decomposition import PCA
+import time
+import sys
 
 class RBFNetwork:
     def __init__(self, num_centers, sigma):
@@ -44,31 +47,61 @@ class RBFNetwork:
 x_train_flat = x_train.reshape(x_train.shape[0], -1) / 255.0
 x_test_flat = x_test.reshape(x_test.shape[0], -1) / 255.0
 
+pca = PCA(0.90)
+x_train_flat_pca = pca.fit_transform(x_train_flat)
+x_test_flat_pca = pca.transform(x_test_flat)
+
 center_numbers = [10, 100, 150, 200, 300]
-sigma_values = [0.5, 1.0, 2.0, 5.0]
+sigma_values = [0.1, 0.5, 1.0, 2.0, 4.0, 5.0]
 
-for num_centers in center_numbers:
-    for sigma in sigma_values:
-        # K-means clustering to get representative centers
-        kmeans = KMeans(n_clusters=num_centers, n_init=10, random_state=42)
-        kmeans.fit(x_train_flat)
-        centers = kmeans.cluster_centers_
+# Open a file for writing results
+with open("rbf_results.txt", "w") as output_file:
+    # Redirect stdout to the file
+    sys.stdout = output_file
 
-        # Initialize and train the RBF network
-        rbf_net = RBFNetwork(num_centers, sigma)
-        
-        # Standardize features
-        scaler = StandardScaler()
-        x_train_scaled = scaler.fit_transform(x_train_flat)
-        rbf_net.fit(x_train_scaled, y_train)
+    for num_centers in center_numbers:
+        for sigma in sigma_values:
+            # K-means clustering to get representative centers
+            kmeans = KMeans(n_clusters=num_centers, n_init=10, random_state=42)
+            kmeans.fit(x_train_flat_pca)
+            centers = kmeans.cluster_centers_
 
-        # Predict on the test set
-        x_test_scaled = scaler.transform(x_test_flat)
-        predictions = rbf_net.predict(x_test_scaled)
+            # Initialize and train the RBF network
+            rbf_net = RBFNetwork(num_centers, sigma)
 
-        # Convert predictions to class labels
-        predicted_labels = np.argmax(predictions, axis=1)
+            # Standardize features
+            scaler = StandardScaler()
+            x_train_scaled = scaler.fit_transform(x_train_flat_pca)
 
-        # Evaluate the model
-        accuracy = accuracy_score(y_test, predicted_labels)
-        print(f"The Accuracy for the number of centers {num_centers} and sigma value {sigma} is:", accuracy)
+            start_time = time.time()
+            rbf_net.fit(x_train_scaled, y_train)
+            end_time = time.time()
+            print(f'Training time: {end_time - start_time} seconds')
+
+            # Predict on the training set
+            x_test_scaled = scaler.transform(x_train_flat_pca)
+            predictions = rbf_net.predict(x_train_scaled)
+
+            # Convert predictions to class labels
+            training_predicted_labels = np.argmax(predictions, axis=1)
+
+            # Evaluate the model
+            accuracy = accuracy_score(y_train, training_predicted_labels)
+            print(f"The Training Accuracy for the number of centers {num_centers} and sigma value {sigma} is:", accuracy)
+
+            # Predict on the test set
+            x_test_scaled = scaler.transform(x_test_flat_pca)
+            predictions = rbf_net.predict(x_test_scaled)
+
+            # Convert predictions to class labels
+            testing_predicted_labels = np.argmax(predictions, axis=1)
+
+            # Evaluate the model
+            accuracy = accuracy_score(y_test, testing_predicted_labels)
+            print(f"The Testing Accuracy for the number of centers {num_centers} and sigma value {sigma} is:", accuracy)
+
+    # Reset stdout to its original value
+    sys.stdout = sys.__stdout__
+
+# Inform the user that the results are saved
+print("Results are saved to rbf_results.txt")
