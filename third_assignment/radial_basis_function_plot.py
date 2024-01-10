@@ -1,9 +1,27 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Read data from the file
-with open('rbf_results.txt', 'r') as file:
+def plot_rbf_data(unique_sigma_values, num_centers_values, data, sigma_colors, type_of_data, y_label, title):
+    plt.figure(figsize=(12, 6))
+    for sigma in unique_sigma_values:
+        mask = (sigma_values == sigma)
+        sorted_indices = np.argsort(num_centers_values[mask])
+        plt.plot(num_centers_values[mask][sorted_indices], data[mask][sorted_indices],
+                 'o-', label=f'{type_of_data} Data (Sigma={sigma})', color=sigma_colors[str(sigma)])
+
+    plt.xlabel('Number of Centers')
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.legend()
+    plt.show()
+
+# Choose which file you want to open
+with open('rbf_random_choice_results.txt', 'r') as file:
     data = file.readlines()
+
+# The second one is commented
+# with open('rbf_results.txt', 'r') as file:
+#     data = file.readlines()
 
 # Initialize lists to store extracted data
 num_centers_values, sigma_values, training_time, accuracy_train, accuracy_test = [], [], [], [], []
@@ -34,42 +52,11 @@ accuracy_test = np.array(accuracy_test)
 
 # Define a color map for discrete sigma values
 sigma_colors = {'0.1': 'red', '0.5': 'green', '1.0': 'blue', '2.0': 'purple', '4.0': 'orange', '5.0': 'brown'}
-
-# Get unique sigma values
 unique_sigma_values = np.unique(sigma_values)
 
-def ploting_func(unique_sigma_values, num_centers_values, accuracy, sigma_colors, type_of_data):
-    # Plotting Training Data Accuracy
-    plt.figure(figsize=(12, 6))
-    for sigma in unique_sigma_values:
-        # Filter data for each sigma value
-        mask = (sigma_values == sigma)
-        sorted_indices = np.argsort(num_centers_values[mask])
-        plt.plot(num_centers_values[mask][sorted_indices], accuracy[mask][sorted_indices],
-                 'o-', label=f'{type_of_data} Data (Sigma={sigma})', color=sigma_colors[str(sigma)])
-
-    plt.xlabel('Number of Centers')
-    plt.ylabel('Accuracy')
-    plt.title(f'RBF Network Classification {type_of_data} Data Accuracy')
-    plt.legend()
-    plt.show()
-
-def plot_training_time(unique_sigma_values, num_centers_values, training_time, sigma_colors):
-    # Plotting Training Time
-    plt.figure(figsize=(12, 6))
-    for sigma in unique_sigma_values:
-        # Filter data for each sigma value
-        mask = (sigma_values == sigma)
-        sorted_indices = np.argsort(num_centers_values[mask])
-        plt.plot(num_centers_values[mask][sorted_indices], training_time[mask][sorted_indices],
-                 'o-', label=f'Training Time (Sigma={sigma})', color=sigma_colors[str(sigma)])
-
-    plt.xlabel('Number of Centers')
-    plt.ylabel('Training Time (seconds)')
-    plt.title('RBF Network Training Time')
-    plt.legend()
-    plt.show()
-
-ploting_func(unique_sigma_values, num_centers_values, accuracy_train, sigma_colors, 'Training')
-ploting_func(unique_sigma_values, num_centers_values, accuracy_test, sigma_colors, 'Testing')
-plot_training_time(unique_sigma_values, num_centers_values, training_time, sigma_colors)
+plot_rbf_data(unique_sigma_values, num_centers_values, accuracy_train, sigma_colors, 'Training', 'Accuracy',
+              'RBF Neural Network Training Data Accuracy')
+plot_rbf_data(unique_sigma_values, num_centers_values, accuracy_test, sigma_colors, 'Testing', 'Accuracy',
+              'RBF Neural Network Testing Data Accuracy')
+plot_rbf_data(unique_sigma_values, num_centers_values, training_time, sigma_colors, 'Training', 'Training Time (seconds)',
+              'RBF Network Training Time')
