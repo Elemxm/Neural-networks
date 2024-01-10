@@ -33,7 +33,6 @@ class RBFNetwork:
         # Convert y to one-hot encoding
         y_one_hot = to_categorical(y, num_classes=self.num_centers)
 
-        # Compute weights using pseudo-inverse
         self.weights = np.linalg.pinv(activations.T @ activations) @ activations.T @ y_one_hot
 
     def predict(self, X):
