@@ -54,5 +54,22 @@ def ploting_func(unique_sigma_values, num_centers_values, accuracy, sigma_colors
     plt.legend()
     plt.show()
 
+def plot_training_time(unique_sigma_values, num_centers_values, training_time, sigma_colors):
+    # Plotting Training Time
+    plt.figure(figsize=(12, 6))
+    for sigma in unique_sigma_values:
+        # Filter data for each sigma value
+        mask = (sigma_values == sigma)
+        sorted_indices = np.argsort(num_centers_values[mask])
+        plt.plot(num_centers_values[mask][sorted_indices], training_time[mask][sorted_indices],
+                 'o-', label=f'Training Time (Sigma={sigma})', color=sigma_colors[str(sigma)])
+
+    plt.xlabel('Number of Centers')
+    plt.ylabel('Training Time (seconds)')
+    plt.title('RBF Network Training Time')
+    plt.legend()
+    plt.show()
+
 ploting_func(unique_sigma_values, num_centers_values, accuracy_train, sigma_colors, 'Training')
 ploting_func(unique_sigma_values, num_centers_values, accuracy_test, sigma_colors, 'Testing')
+plot_training_time(unique_sigma_values, num_centers_values, training_time, sigma_colors)
