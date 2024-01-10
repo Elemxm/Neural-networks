@@ -1,90 +1,120 @@
+RBFNN for the number of centers 10 and sigma value 0.1
 Training time: 3.270784616470337 seconds
-The Training Accuracy for the number of centers 10 and sigma value 0.1 is: 0.10014
-The Testing Accuracy for the number of centers 10 and sigma value 0.1 is: 0.1
+The Training Accuracy is: 0.10014
+The Testing Accuracy is: 0.1
+RBFNN for the number of centers 10 and sigma value 0.5
 Training time: 3.12180757522583 seconds
-The Training Accuracy for the number of centers 10 and sigma value 0.5 is: 0.11096
-The Testing Accuracy for the number of centers 10 and sigma value 0.5 is: 0.1098
+The Training Accuracy is: 0.11096
+The Testing Accuracy is: 0.1098
+RBFNN for the number of centers 10 and sigma value 1.0
 Training time: 2.88126802444458 seconds
-The Training Accuracy for the number of centers 10 and sigma value 1.0 is: 0.11378
-The Testing Accuracy for the number of centers 10 and sigma value 1.0 is: 0.1123
+The Training Accuracy is: 0.11378
+The Testing Accuracy is: 0.1123
+RBFNN for the number of centers 10 and sigma value 2.0
 Training time: 2.9862852096557617 seconds
-The Training Accuracy for the number of centers 10 and sigma value 2.0 is: 0.102
-The Testing Accuracy for the number of centers 10 and sigma value 2.0 is: 0.1018
+The Training Accuracy is: 0.102
+The Testing Accuracy is: 0.1018
+RBFNN for the number of centers 10 and sigma value 4.0
 Training time: 2.9249987602233887 seconds
-The Training Accuracy for the number of centers 10 and sigma value 4.0 is: 0.14274
-The Testing Accuracy for the number of centers 10 and sigma value 4.0 is: 0.1364
+The Training Accuracy is: 0.14274
+The Testing Accuracy is: 0.1364
+RBFNN for the number of centers 10 and sigma value 5.0
 Training time: 2.9167158603668213 seconds
-The Training Accuracy for the number of centers 10 and sigma value 5.0 is: 0.14586
-The Testing Accuracy for the number of centers 10 and sigma value 5.0 is: 0.1367
+The Training Accuracy is: 0.14586
+The Testing Accuracy is: 0.1367
+RBFNN for the number of centers 100 and sigma value 0.1
 Training time: 30.30608057975769 seconds
-The Training Accuracy for the number of centers 100 and sigma value 0.1 is: 0.10196
-The Testing Accuracy for the number of centers 100 and sigma value 0.1 is: 0.1
+The Training Accuracy is: 0.10196
+The Testing Accuracy is: 0.1
+RBFNN for the number of centers 100 and sigma value 0.5
 Training time: 32.33886408805847 seconds
-The Training Accuracy for the number of centers 100 and sigma value 0.5 is: 0.14294
-The Testing Accuracy for the number of centers 100 and sigma value 0.5 is: 0.1396
+The Training Accuracy is: 0.14294
+The Testing Accuracy is: 0.1396
+RBFNN for the number of centers 100 and sigma value 1.0
 Training time: 27.207488298416138 seconds
-The Training Accuracy for the number of centers 100 and sigma value 1.0 is: 0.13584
-The Testing Accuracy for the number of centers 100 and sigma value 1.0 is: 0.1383
+The Training Accuracy is: 0.13584
+The Testing Accuracy is: 0.1383
+RBFNN for the number of centers 100 and sigma value 2.0
 Training time: 28.286189556121826 seconds
-The Training Accuracy for the number of centers 100 and sigma value 2.0 is: 0.11506
-The Testing Accuracy for the number of centers 100 and sigma value 2.0 is: 0.1135
+The Training Accuracy is: 0.11506
+The Testing Accuracy is: 0.1135
+RBFNN for the number of centers 100 and sigma value 4.0
 Training time: 42.01080918312073 seconds
-The Training Accuracy for the number of centers 100 and sigma value 4.0 is: 0.25738
-The Testing Accuracy for the number of centers 100 and sigma value 4.0 is: 0.2506
+The Training Accuracy is: 0.25738
+The Testing Accuracy is: 0.2506
+RBFNN for the number of centers 100 and sigma value 5.0
 Training time: 41.34245181083679 seconds
-The Training Accuracy for the number of centers 100 and sigma value 5.0 is: 0.34274
-The Testing Accuracy for the number of centers 100 and sigma value 5.0 is: 0.3405
+The Training Accuracy is: 0.34274
+The Testing Accuracy is: 0.3405
+RBFNN for the number of centers 150 and sigma value 0.1
 Training time: 66.05969953536987 seconds
-The Training Accuracy for the number of centers 150 and sigma value 0.1 is: 0.1028
-The Testing Accuracy for the number of centers 150 and sigma value 0.1 is: 0.1
+The Training Accuracy is: 0.1028
+The Testing Accuracy is: 0.1
+RBFNN for the number of centers 150 and sigma value 0.5
 Training time: 59.24680256843567 seconds
-The Training Accuracy for the number of centers 150 and sigma value 0.5 is: 0.15576
-The Testing Accuracy for the number of centers 150 and sigma value 0.5 is: 0.1522
+The Training Accuracy is: 0.15576
+The Testing Accuracy is: 0.1522
+RBFNN for the number of centers 150 and sigma value 1.0
 Training time: 61.50078821182251 seconds
-The Training Accuracy for the number of centers 150 and sigma value 1.0 is: 0.14644
-The Testing Accuracy for the number of centers 150 and sigma value 1.0 is: 0.1458
+The Training Accuracy is: 0.14644
+The Testing Accuracy is: 0.1458
+RBFNN for the number of centers 150 and sigma value 2.0
 Training time: 60.92132830619812 seconds
-The Training Accuracy for the number of centers 150 and sigma value 2.0 is: 0.13384
-The Testing Accuracy for the number of centers 150 and sigma value 2.0 is: 0.1333
+The Training Accuracy is: 0.13384
+The Testing Accuracy is: 0.1333
+RBFNN for the number of centers 150 and sigma value 4.0
 Training time: 57.85228633880615 seconds
-The Training Accuracy for the number of centers 150 and sigma value 4.0 is: 0.30288
-The Testing Accuracy for the number of centers 150 and sigma value 4.0 is: 0.3034
+The Training Accuracy is: 0.30288
+The Testing Accuracy is: 0.3034
+RBFNN for the number of centers 150 and sigma value 5.0
 Training time: 42.4010329246521 seconds
-The Training Accuracy for the number of centers 150 and sigma value 5.0 is: 0.38882
-The Testing Accuracy for the number of centers 150 and sigma value 5.0 is: 0.3799
+The Training Accuracy is: 0.38882
+The Testing Accuracy is: 0.3799
+RBFNN for the number of centers 200 and sigma value 0.1
 Training time: 59.77864670753479 seconds
-The Training Accuracy for the number of centers 200 and sigma value 0.1 is: 0.10368
-The Testing Accuracy for the number of centers 200 and sigma value 0.1 is: 0.1
+The Training Accuracy is: 0.10368
+The Testing Accuracy is: 0.1
+RBFNN for the number of centers 200 and sigma value 0.5
 Training time: 59.25494909286499 seconds
-The Training Accuracy for the number of centers 200 and sigma value 0.5 is: 0.14182
-The Testing Accuracy for the number of centers 200 and sigma value 0.5 is: 0.1368
+The Training Accuracy is: 0.14182
+The Testing Accuracy is: 0.1368
+RBFNN for the number of centers 200 and sigma value 1.0
 Training time: 55.333840131759644 seconds
-The Training Accuracy for the number of centers 200 and sigma value 1.0 is: 0.15774
-The Testing Accuracy for the number of centers 200 and sigma value 1.0 is: 0.1539
+The Training Accuracy is: 0.15774
+The Testing Accuracy is: 0.1539
+RBFNN for the number of centers 200 and sigma value 2.0
 Training time: 58.32154369354248 seconds
-The Training Accuracy for the number of centers 200 and sigma value 2.0 is: 0.15114
-The Testing Accuracy for the number of centers 200 and sigma value 2.0 is: 0.1521
+The Training Accuracy is: 0.15114
+The Testing Accuracy is: 0.1521
+RBFNN for the number of centers 200 and sigma value 4.0
 Training time: 57.52122187614441 seconds
-The Training Accuracy for the number of centers 200 and sigma value 4.0 is: 0.31962
-The Testing Accuracy for the number of centers 200 and sigma value 4.0 is: 0.3208
+The Training Accuracy is: 0.31962
+The Testing Accuracy is: 0.3208
+RBFNN for the number of centers 200 and sigma value 5.0
 Training time: 55.24321746826172 seconds
-The Training Accuracy for the number of centers 200 and sigma value 5.0 is: 0.40774
-The Testing Accuracy for the number of centers 200 and sigma value 5.0 is: 0.3991
+The Training Accuracy is: 0.40774
+The Testing Accuracy is: 0.3991
+RBFNN for the number of centers 300 and sigma value 0.1
 Training time: 88.12569642066956 seconds
-The Training Accuracy for the number of centers 300 and sigma value 0.1 is: 0.10532
-The Testing Accuracy for the number of centers 300 and sigma value 0.1 is: 0.1004
+The Training Accuracy is: 0.10532
+The Testing Accuracy is: 0.1004
+RBFNN for the number of centers 300 and sigma value 0.5
 Training time: 83.42299914360046 seconds
-The Training Accuracy for the number of centers 300 and sigma value 0.5 is: 0.16074
-The Testing Accuracy for the number of centers 300 and sigma value 0.5 is: 0.156
+The Training Accuracy is: 0.16074
+The Testing Accuracy is: 0.156
+RBFNN for the number of centers 300 and sigma value 1.0
 Training time: 90.59449911117554 seconds
-The Training Accuracy for the number of centers 300 and sigma value 1.0 is: 0.17022
-The Testing Accuracy for the number of centers 300 and sigma value 1.0 is: 0.1673
+The Training Accuracy is: 0.17022
+The Testing Accuracy is: 0.1673
+RBFNN for the number of centers 300 and sigma value 2.0
 Training time: 85.21545600891113 seconds
-The Training Accuracy for the number of centers 300 and sigma value 2.0 is: 0.16046
-The Testing Accuracy for the number of centers 300 and sigma value 2.0 is: 0.1574
+The Training Accuracy is: 0.16046
+The Testing Accuracy is: 0.1574
+RBFNN for the number of centers 300 and sigma value 4.0
 Training time: 111.47364544868469 seconds
-The Training Accuracy for the number of centers 300 and sigma value 4.0 is: 0.36024
-The Testing Accuracy for the number of centers 300 and sigma value 4.0 is: 0.3586
+The Training Accuracy is: 0.36024
+The Testing Accuracy is: 0.3586
+RBFNN for the number of centers 300 and sigma value 5.0
 Training time: 103.68939757347107 seconds
-The Training Accuracy for the number of centers 300 and sigma value 5.0 is: 0.43302
-The Testing Accuracy for the number of centers 300 and sigma value 5.0 is: 0.4236
+The Training Accuracy is: 0.43302
+The Testing Accuracy is: 0.4236

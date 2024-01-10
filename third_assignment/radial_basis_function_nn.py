@@ -68,6 +68,7 @@ with open("rbf_results.txt", "w") as output_file:
 
             # Initialize and train the RBF network
             rbf_net = RBFNetwork(num_centers, sigma)
+            print(f"RBFNN for the number of centers {num_centers} and sigma value {sigma}")
 
             # Standardize features
             scaler = StandardScaler()
@@ -87,7 +88,7 @@ with open("rbf_results.txt", "w") as output_file:
 
             # Evaluate the model
             accuracy = accuracy_score(y_train, training_predicted_labels)
-            print(f"The Training Accuracy for the number of centers {num_centers} and sigma value {sigma} is:", accuracy)
+            print(f"The Training Accuracy is:", accuracy)
 
             # Predict on the test set
             x_test_scaled = scaler.transform(x_test_flat_pca)
@@ -98,10 +99,63 @@ with open("rbf_results.txt", "w") as output_file:
 
             # Evaluate the model
             accuracy = accuracy_score(y_test, testing_predicted_labels)
-            print(f"The Testing Accuracy for the number of centers {num_centers} and sigma value {sigma} is:", accuracy)
+            print(f"The Testing Accuracy is:", accuracy)
 
     # Reset stdout to its original value
     sys.stdout = sys.__stdout__
 
 # Inform the user that the results are saved
 print("Results are saved to rbf_results.txt")
+
+
+
+# Open a file for writing results
+with open("rbf_random_choice_results.txt", "w") as output_file:
+    # Redirect stdout to the file
+    sys.stdout = output_file
+    for num_centers in center_numbers:
+        for sigma in sigma_values:
+            # Randomly select centers
+            random_indices = np.random.choice(x_train_flat_pca.shape[0], num_centers, replace=False)
+            centers = x_train_flat_pca[random_indices]
+
+            # Initialize and train the RBF network
+            rbf_net = RBFNetwork(num_centers, sigma)
+            
+            print(f"RBFNN for the number of centers {num_centers} and sigma value {sigma}")
+            # Standardize features
+            scaler = StandardScaler()
+            x_train_scaled = scaler.fit_transform(x_train_flat_pca)
+
+            start_time = time.time()
+            rbf_net.fit(x_train_scaled, y_train)
+            end_time = time.time()
+            print(f'Training time: {end_time - start_time} seconds')
+
+            # Predict on the training set
+            x_test_scaled = scaler.transform(x_train_flat_pca)
+            predictions = rbf_net.predict(x_train_scaled)
+
+            # Convert predictions to class labels
+            training_predicted_labels = np.argmax(predictions, axis=1)
+
+            # Evaluate the model
+            accuracy = accuracy_score(y_train, training_predicted_labels)
+            print(f"The Training Accuracy is:", accuracy)
+
+            # Predict on the test set
+            x_test_scaled = scaler.transform(x_test_flat_pca)
+            predictions = rbf_net.predict(x_test_scaled)
+
+            # Convert predictions to class labels
+            testing_predicted_labels = np.argmax(predictions, axis=1)
+
+            # Evaluate the model
+            accuracy = accuracy_score(y_test, testing_predicted_labels)
+            print(f"The Testing Accuracy is:", accuracy)
+
+    # Reset stdout to its original value
+    sys.stdout = sys.__stdout__
+
+# Inform the user that the results are saved
+print("Results are saved to rbf_random_choice_results.txt")
